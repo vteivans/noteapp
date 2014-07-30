@@ -57,12 +57,12 @@ h2 {
 
 		.note-txt {
 			.noteColor(@textNoteColor);
-			.foldCorner(@textNoteColor, @sidebarBg, 8px);
+			.foldCorner(@textNoteColor, 8px);
 		}
 
 		.note-img {
 			.noteColor(@imageNoteColor);
-			.foldCorner(@imageNoteColor, @sidebarBg, 8px);
+			.foldCorner(@imageNoteColor, 8px);
 		}
 	}
 
@@ -145,7 +145,6 @@ h2 {
 	}
 
 	.note {
-		overflow: hidden;
 		width: 244px;
 		height: 244px;
 		position: absolute;
@@ -161,7 +160,7 @@ h2 {
 		&.note-txt {
 			line-height: 244px;
 			.noteColor(@textNoteColor);
-			.foldCorner(@textNoteColor, @pageBg, 24px);
+			.foldCorner(@textNoteColor, 24px);
 
 			.note-content {
 				font-size: 35px;
@@ -176,7 +175,7 @@ h2 {
 			.noteColor(@imageNoteColor);
 
 			&.empty {
-				.foldCorner(@imageNoteColor, @pageBg, 24px);
+				.foldCorner(@imageNoteColor, 24px);
 			}
 		}
 
