@@ -12,16 +12,26 @@
 	color: darken(@color, 21.21%);
 }
 
-.foldCorner(@color, @bgColor, @foldWidth) {
+.foldCorner(@color, @foldWidth) {
 
 	&:before {
 		content: "";
 		position: absolute;
 		right: 0;
-		bottom: 0;
+		bottom: -@foldWidth;
 		border-width: @foldWidth @foldWidth 0 0;
 		border-style: solid;
-		border-color: darken(@color, 21.21%) @bgColor;
+		border-color: darken(@color, 21.21%) transparent;
+	}
+	&:after {
+		content: "";
+		position: absolute;
+		bottom: -@foldWidth;
+		left: 0;
+		right: @foldWidth;
+		border-width: @foldWidth/2;
+		border-style: solid;
+		border-color: @color;
 	}
 }
 
