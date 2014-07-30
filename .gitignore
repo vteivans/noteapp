@@ -1,0 +1,5 @@
+note_app.sublime-project
+noteapp.pyc
+static/js/vendor/backbone.marionette.js
+static/js/vendor/json2.js
+venv/

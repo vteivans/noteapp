@@ -3,19 +3,21 @@
 	<head>
 		<title>My Notes</title>
 		<link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}" />
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-		<script type="text/javascript" src="{{ url_for('static', filename='lib/jquery-1.11.1.min.js') }}"></script>
-		<script type="text/javascript" src="{{ url_for('static', filename='lib/jquery-ui.min.js') }}"></script>
-		<script type="text/javascript" src="{{ url_for('static', filename='lib/underscore-min.js') }}"></script>
-		<script type="text/javascript" src="{{ url_for('static', filename='lib/backbone-min.js') }}"></script>
-		<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+		<script type="text/javascript" src="{{ url_for('static', filename='js/vendor/jquery-1.11.1.min.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/vendor/json2.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/vendor/jquery-ui.min.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/vendor/underscore-min.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/vendor/backbone-min.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/vendor/backbone.marionette.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
 	</head>
 	<body><div id="sidebar" class="sidebar">
-				{{ sidebar|safe }}
-			</div><div class="board">
-				<div  id="board" class="note-wrapper">
-					{% block body %}{% endblock %}	
-				</div>
+			{{ sidebar|safe }}
+		</div><div class="board">
+			<div  id="board" class="note-wrapper">
+				{% block body %}{% endblock %}	
 			</div>
-		</body>
+		</div>
+	</body>
 </html>

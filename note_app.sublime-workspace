@@ -4,46 +4,6 @@
 		"selected_items":
 		[
 			[
-				"proto",
-				"prototype"
-			],
-			[
-				"Contac",
-				"ContactsApp"
-			],
-			[
-				"alert",
-				"alertPrivate"
-			],
-			[
-				"fir",
-				"firstName"
-			],
-			[
-				"Coll",
-				"CollectionView"
-			],
-			[
-				"Contact",
-				"ContactManager"
-			],
-			[
-				"Con",
-				"ContactItemView"
-			],
-			[
-				"Conta",
-				"ContactView"
-			],
-			[
-				"phone",
-				"phoneNumber"
-			],
-			[
-				"cona",
-				"ContactManager"
-			],
-			[
 				"pla",
 				"placeHolderTxt"
 			],
@@ -288,66 +248,26 @@
 	"buffers":
 	[
 		{
-			"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/index.html",
+			"file": "assets/less/style.less",
 			"settings":
 			{
-				"buffer_size": 2032,
+				"buffer_size": 3225,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/apps/contacts/contacts_app.js",
+			"file": "templates/layout.html",
 			"settings":
 			{
-				"buffer_size": 419,
+				"buffer_size": 1016,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/apps/contacts/show/show_view.js",
+			"file": "noteapp.py",
 			"settings":
 			{
-				"buffer_size": 185,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/apps/contacts/list/list_controller.js",
-			"settings":
-			{
-				"buffer_size": 818,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/app.js",
-			"settings":
-			{
-				"buffer_size": 217,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/apps/contacts/list/list_view.js",
-			"settings":
-			{
-				"buffer_size": 1184,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/apps/contacts/show/show_controller.js",
-			"settings":
-			{
-				"buffer_size": 282,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/entities/contacts.js",
-			"settings":
-			{
-				"buffer_size": 1606,
+				"buffer_size": 7698,
 				"line_ending": "Windows"
 			}
 		}
@@ -355,64 +275,80 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 196.0,
+		"height": 392.0,
 		"selected_items":
 		[
 			[
 				"commit",
-				"Git: Quick Commit"
-			],
-			[
-				"git: commit",
-				"Git: Quick Commit"
-			],
-			[
-				"wrap",
-				"HTML: Wrap Selection With Tag"
-			],
-			[
-				"comm",
 				"Git: Commit"
 			],
 			[
-				"",
-				"Convert Case: Lower Case"
-			],
-			[
-				"add",
-				"Git: Add..."
-			],
-			[
-				"upgrade ",
-				"Package Control: Upgrade Package"
-			],
-			[
-				"upgrade",
-				"Package Control: Upgrade/Overwrite All Packages"
-			],
-			[
-				"package control",
-				"Package Control: Upgrade Package"
+				"install",
+				"Package Control: Install Package"
 			],
 			[
 				"remove",
 				"Package Control: Remove Package"
 			],
 			[
-				"init",
-				"Vagrant: Init"
+				"status",
+				"Git: Status"
 			],
 			[
-				"git ",
-				"Git: Init"
+				"ame",
+				"Git: Amend Commit"
+			],
+			[
+				"qui",
+				"Git: Quick Commit"
+			],
+			[
+				"git commit",
+				"Git: Commit"
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
+				"commi",
+				"Git: Commit"
+			],
+			[
+				"branch",
+				"Git: New Branch"
+			],
+			[
+				"git ad",
+				"Git: Add Selected Hunk"
 			],
 			[
 				"git add",
+				"Git: Add Selected Hunk"
+			],
+			[
+				"git init",
+				"Git: Init"
+			],
+			[
+				"add",
 				"Git: Add..."
 			],
 			[
-				"install",
-				"Package Control: Install Package"
+				"",
+				"Emmet: Encode\\Decode Image to data:URL"
+			],
+			[
+				"git",
+				"Git: Init"
+			],
+			[
+				"commit ",
+				"GitGutter: Compare Against Commit"
+			],
+			[
+				"init",
+				"Git: Init"
 			],
 			[
 				"menu",
@@ -421,6 +357,10 @@
 			[
 				"tabs",
 				"Indentation: Convert to Tabs"
+			],
+			[
+				"wrap",
+				"HTML: Wrap Selection With Tag"
 			],
 			[
 				"html",
@@ -560,26 +500,31 @@
 	},
 	"file_history":
 	[
-		"/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/css/application.css",
-		"/C/Users/Viesturs/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/C/Users/Viesturs/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Viesturs/Documents/lietas/note_app_win/note_app.sublime-project",
+		"/C/Users/Viesturs/Documents/lietas/note_app_win/static/less/mixins.less",
+		"/C/Users/Viesturs/Documents/lietas/note_app_win/static/less/style.less",
+		"/C/Users/Viesturs/Documents/lietas/note_app_win/templates/layout.html",
+		"/C/Users/Viesturs/Documents/lietas/note_app_win/templates/sidebar.html",
+		"/C/Users/Viesturs/Documents/lietas/note_app_win/static/script.js",
+		"/C/Users/Viesturs/Documents/lietas/note_app_win/noteapp.py",
+		"/C/Users/Viesturs/AppData/Roaming/Sublime Text 3/Packages/Git/Git.sublime-settings",
 		"/C/Users/Viesturs/Documents/lietas/note_app_win/templates/show_entries.html",
 		"/C/Users/Viesturs/Documents/lietas/test_node/mailtest/routes/index.js",
 		"/C/Users/Viesturs/Documents/lietas/note_app_win/schema.sql",
 		"/C/Users/Viesturs/Documents/lietas/test_node/mailtest/app.js",
 		"/C/Users/Viesturs/Darbs/perkamkopa/www/root/js/common.js",
+		"/C/Users/Viesturs/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/C/Users/Viesturs/Documents/lietas/note_app_win/venv/Lib/site-packages/flask/app.py",
 		"/C/Users/Viesturs/Downloads/jquery-ui-1.11.0.custom/jquery-ui-1.11.0.custom/jquery-ui.structure.css",
 		"/C/Users/Viesturs/Darbs/perkamkopa/www/root/less/style.less",
-		"/C/Users/Viesturs/Documents/lietas/note_app_win/note_app.sublime-project",
 		"/C/Users/Viesturs/AppData/Roaming/Sublime Text 3/Packages/Less2Css/README.md",
 		"/C/Users/Viesturs/Documents/lietas/note_app_win/templates/login.html",
 		"/C/Users/Viesturs/Documents/lietas/note_app_win/static/style.css",
+		"/C/Users/Viesturs/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/C/Users/Viesturs/Documents/lietas/note_app_win/static/less/style.css",
 		"/C/Users/Viesturs/AppData/Roaming/Sublime Text 3/Packages/Less2Css/less2css.sublime-settings",
 		"/C/Users/Viesturs/Documents/lietas/note_app_win/static/lib/test.less",
 		"/C/Users/Viesturs/Documents/lietas/note_app_win/static/lib/test.css",
-		"/C/Users/Viesturs/Documents/lietas/note_app_win/noteapp.py",
 		"/C/Users/Viesturs/Documents/lietas/test_node/mailtest/node_modules/express/lib/application.js",
 		"/C/Users/Viesturs/Documents/lietas/test_node/mailtest/views/error.hjs",
 		"/C/Users/Viesturs/Documents/lietas/hvtest/www/mail_html2.php",
@@ -643,7 +588,7 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -657,24 +602,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"list",
-			"template",
-			"e",
-			"contacts",
-			"script",
-			"ContactItemView",
-			"ContactManager",
-			">\n",
-			"firstName",
-			"lastName",
-			"\"\n",
-			"				{\n					firstName: \"Alice\",\n					lastName: \"Arten\",\n					phoneNumber: \"555-0184\"\n				},\n	",
-			"			{\n				firstName: \"Alice\",\n				lastName: \"Arten\",\n				phoneNumber: \"555-0184\"\n			},\n",
-			"{\n				firstName: \"Alice\",\n				lastName: \"Arten\",\n				phoneNumber: \"555-0184\"\n			},",
-			"p>",
-			"ContactView",
-			"ContactManager",
-			"\"></",
+			"static",
+			"venv",
 			"print",
 			"();\n",
 			"height",
@@ -784,7 +713,23 @@
 			";",
 			"_",
 			"this_is_not_reflowable__",
-			"fixed"
+			"fixed",
+			"offer",
+			";\n",
+			";",
+			"td",
+			";",
+			"800",
+			"410",
+			"$link",
+			"[\n	'image' => 'http://www.perkamkopa.lv/i/image/48/46748.jpg', \n	'link' => 'http://www.perkamkopa.lv/lv/newsletter/click/product/7907/section/main/id/__newsletter__',\n	\n	'regions' => 'Rīga:',\n	'title_short' => '1h slidošana + slidu noma',\n	'intro' => 'Izbaudi ziemas priekus uz slidām! Slidošana ir viena no efektīvākajām fiziskajām aktivitātēm formas uzturēšanai un svara samazināšanai, kā arī sirds un asinsvadu stiprināšanai, jo tā nodarbina lielās muskuļu grupas gan ķermeņa augšdaļā, gan apakšdaļā!',\n	\n	'price_ls' => '2.81', \n	'price_eur' => '4.00'\n	],",
+			";",
+			"$link",
+			"width: 410px",
+			"width:380px",
+			",'vteivans@outlook.com'",
+			"lv",
+			"img"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -793,7 +738,7 @@
 		"replace_history":
 		[
 		],
-		"reverse": true,
+		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": false,
@@ -802,142 +747,30 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/index.html",
+					"file": "assets/less/style.less",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2032,
+						"buffer_size": 3225,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2032,
-								2032
+								92,
+								92
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"syntax_mgr_loaded": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 607.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/apps/contacts/contacts_app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 419,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								419,
-								419
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/apps/contacts/show/show_view.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 185,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								175,
-								175
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/apps/contacts/list/list_controller.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 818,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								476,
-								476
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 217,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								217,
-								217
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -947,87 +780,61 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/apps/contacts/list/list_view.js",
+					"buffer": 1,
+					"file": "templates/layout.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1184,
+						"buffer_size": 1016,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								508,
-								508
+								111,
+								117
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 135.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/apps/contacts/show/show_controller.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 282,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								282,
-								282
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/entities/contacts.js",
+					"buffer": 2,
+					"file": "noteapp.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1606,
+						"buffer_size": 7698,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								101,
-								101
+								2695,
+								2699
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 28.0,
-						"translation.y": 540.0,
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1035,7 +842,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 34.0
+		"height": 23.0
 	},
 	"input":
 	{
@@ -1080,7 +887,7 @@
 	{
 		"height": 100.0
 	},
-	"project": "ContactManager.sublime-project",
+	"project": "note_app.sublime-project",
 	"replace":
 	{
 		"height": 42.0
