@@ -1,0 +1,31 @@
+@pageBg: #f4f4f4;
+@sidebarBg: #1d2027;
+
+@textNoteColor: #fd8e09;
+@imageNoteColor: #71459a;
+
+// @sidebarColor: #a2a6af;
+@sidebarColor: rgba(255, 255, 255, 0.4);
+
+.noteColor(@color) {
+	background-color: @color;
+	color: darken(@color, 21.21%);
+}
+
+.foldCorner(@color, @bgColor, @foldWidth) {
+
+	&:before {
+		content: "";
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		border-width: @foldWidth @foldWidth 0 0;
+		border-style: solid;
+		border-color: darken(@color, 21.21%) @bgColor;
+	}
+}
+
+.aButton(@display: block;) {
+	display: @display;
+	text-decoration: none;
+}

@@ -1,0 +1,20 @@
+<div class="top">
+</div>
+<ul id="desktops" class="desktops">
+{% for desktop in desktops %}
+	<li class="{{ 'active' if desktop.id == current }}"><a class="desktop-item" href="{{ url_for('view_desktop', desktop=desktop.id) }}" data-id="{{desktop.id}}"><i class="icon">&nbsp;</i>{{ desktop.name }}</a></li>
+{% endfor %}
+
+</ul>
+<script>
+	NoteApp.desktops = new Desktops([
+		{% for desktop in desktops %}
+		{
+			id: {{desktop.id}},
+			name: '{{desktop.name}}',
+			url:'{{ url_for('view_desktop', desktop=desktop.id) }}',
+			current: {{ 1 if desktop.id == current else 0 }}
+		},
+		{% endfor %}
+	]);
+</script>

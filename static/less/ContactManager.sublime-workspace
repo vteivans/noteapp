@@ -1,0 +1,1137 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"proto",
+				"prototype"
+			],
+			[
+				"Contac",
+				"ContactsApp"
+			],
+			[
+				"alert",
+				"alertPrivate"
+			],
+			[
+				"fir",
+				"firstName"
+			],
+			[
+				"Coll",
+				"CollectionView"
+			],
+			[
+				"Contact",
+				"ContactManager"
+			],
+			[
+				"Con",
+				"ContactItemView"
+			],
+			[
+				"Conta",
+				"ContactView"
+			],
+			[
+				"phone",
+				"phoneNumber"
+			],
+			[
+				"cona",
+				"ContactManager"
+			],
+			[
+				"pla",
+				"placeHolderTxt"
+			],
+			[
+				"tem",
+				"templateContentTxt"
+			],
+			[
+				"note",
+				"note-img"
+			],
+			[
+				"templ",
+				"templatePlaceHolder"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"over",
+				"overflow-x"
+			],
+			[
+				"get",
+				"get_db"
+			],
+			[
+				"re",
+				"request"
+			],
+			[
+				"SE",
+				"SECRET_KEY"
+			],
+			[
+				"dro",
+				"droppable"
+			],
+			[
+				"pos",
+				"posy"
+			],
+			[
+				"class",
+				"className"
+			],
+			[
+				"pad",
+				"padding-left"
+			],
+			[
+				"plac",
+				"placeHolderImg"
+			],
+			[
+				"add",
+				"add-desktop"
+			],
+			[
+				"co",
+				"controls"
+			],
+			[
+				"Note",
+				"NoteApp"
+			],
+			[
+				"destop",
+				"desktops"
+			],
+			[
+				"desk",
+				"desktopAttrs"
+			],
+			[
+				"reqe",
+				"requestData"
+			],
+			[
+				"deskto",
+				"desktopAttr"
+			],
+			[
+				"para",
+				"noteParams"
+			],
+			[
+				"des",
+				"desktop-name-input"
+			],
+			[
+				"cu",
+				"currentTarget"
+			],
+			[
+				"c",
+				"currentTarget"
+			],
+			[
+				"Des",
+				"Desktop"
+			],
+			[
+				"new",
+				"newDesktop"
+			],
+			[
+				"json",
+				"jsonify"
+			],
+			[
+				"Desk",
+				"DesktopList"
+			],
+			[
+				"url",
+				"url_for"
+			],
+			[
+				"js",
+				"jsonify"
+			],
+			[
+				"sidebar",
+				"sidebarColor"
+			],
+			[
+				"side",
+				"sidebarColor"
+			],
+			[
+				"rg",
+				"rgba(r,g,b,a)"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"sql",
+				"sqlite_db"
+			],
+			[
+				"ren",
+				"renderPageWithCss"
+			],
+			[
+				"_",
+				"_POST"
+			],
+			[
+				"array_in",
+				"array_intersect_key"
+			],
+			[
+				"php",
+				"php5-fpm"
+			],
+			[
+				"list",
+				"list-style"
+			],
+			[
+				"i",
+				"italic"
+			],
+			[
+				"tex",
+				"text-transform"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"col",
+				"colspan	Attr"
+			],
+			[
+				"news",
+				"newsletterData"
+			],
+			[
+				"me",
+				"messageHTML"
+			],
+			[
+				"send",
+				"sendMessage"
+			],
+			[
+				"mail",
+				"mailStatus"
+			],
+			[
+				"st",
+				"statusFile"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"so",
+				"sorting"
+			],
+			[
+				"n",
+				"numbers"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"exp",
+				"explode"
+			],
+			[
+				"arrayke",
+				"array_keys"
+			],
+			[
+				"ba",
+				"banana"
+			],
+			[
+				"my",
+				"myName"
+			],
+			[
+				"strto",
+				"strtolower"
+			],
+			[
+				"on",
+				"onclick	Attr"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/index.html",
+			"settings":
+			{
+				"buffer_size": 2032,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/apps/contacts/contacts_app.js",
+			"settings":
+			{
+				"buffer_size": 419,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/apps/contacts/show/show_view.js",
+			"settings":
+			{
+				"buffer_size": 185,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/apps/contacts/list/list_controller.js",
+			"settings":
+			{
+				"buffer_size": 818,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/app.js",
+			"settings":
+			{
+				"buffer_size": 217,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/apps/contacts/list/list_view.js",
+			"settings":
+			{
+				"buffer_size": 1184,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/apps/contacts/show/show_controller.js",
+			"settings":
+			{
+				"buffer_size": 282,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/entities/contacts.js",
+			"settings":
+			{
+				"buffer_size": 1606,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 196.0,
+		"selected_items":
+		[
+			[
+				"commit",
+				"Git: Quick Commit"
+			],
+			[
+				"git: commit",
+				"Git: Quick Commit"
+			],
+			[
+				"wrap",
+				"HTML: Wrap Selection With Tag"
+			],
+			[
+				"comm",
+				"Git: Commit"
+			],
+			[
+				"",
+				"Convert Case: Lower Case"
+			],
+			[
+				"add",
+				"Git: Add..."
+			],
+			[
+				"upgrade ",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"upgrade",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"package control",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"init",
+				"Vagrant: Init"
+			],
+			[
+				"git ",
+				"Git: Init"
+			],
+			[
+				"git add",
+				"Git: Add..."
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"menu",
+				"View: Toggle Menu"
+			],
+			[
+				"tabs",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"html",
+				"Set Syntax: HTML (Jinja Templates)"
+			],
+			[
+				"to tab",
+				"View: Toggle Tabs"
+			],
+			[
+				"jinj",
+				"Set Syntax: HTML (Jinja Templates)"
+			],
+			[
+				"jin",
+				"Set Syntax: Jinja Templates"
+			],
+			[
+				"insta",
+				"Scope Hunter: Toggle Instant Scoper"
+			],
+			[
+				"lo",
+				"Convert Case: Lower Case"
+			],
+			[
+				"low",
+				"Convert Case: Lower Case"
+			],
+			[
+				"low	",
+				"Convert Case: Lower Case"
+			],
+			[
+				"tit",
+				"Convert Case: Title Case"
+			],
+			[
+				"rub",
+				"Set Syntax: Ruby"
+			],
+			[
+				"puppet",
+				"Set Syntax: Puppet"
+			],
+			[
+				"ruby",
+				"Set Syntax: Ruby"
+			],
+			[
+				"ru	",
+				"Set Syntax: Ruby"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"syntax perl",
+				"Set Syntax: Perl"
+			],
+			[
+				"perl",
+				"Permute Lines: Reverse"
+			],
+			[
+				"wrap ht",
+				"HTML: Wrap Selection With Tag"
+			],
+			[
+				"color",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"HTML",
+				"HTMLPrettify"
+			],
+			[
+				"CSS",
+				"Set Syntax: CSS"
+			],
+			[
+				"css ",
+				"Set Syntax: CSS"
+			],
+			[
+				"highl",
+				"SublimeHighlight: convert to HTML"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"upper",
+				"Convert Case: Upper Case"
+			],
+			[
+				"c++",
+				"Set Syntax: C++"
+			],
+			[
+				"lowe",
+				"Convert Case: Lower Case"
+			],
+			[
+				"plain",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"python",
+				"Set Syntax: Python"
+			],
+			[
+				"bash",
+				"Set Syntax: Shell Script (Bash)"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/css/application.css",
+		"/C/Users/Viesturs/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Viesturs/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Viesturs/Documents/lietas/note_app_win/templates/show_entries.html",
+		"/C/Users/Viesturs/Documents/lietas/test_node/mailtest/routes/index.js",
+		"/C/Users/Viesturs/Documents/lietas/note_app_win/schema.sql",
+		"/C/Users/Viesturs/Documents/lietas/test_node/mailtest/app.js",
+		"/C/Users/Viesturs/Darbs/perkamkopa/www/root/js/common.js",
+		"/C/Users/Viesturs/Documents/lietas/note_app_win/venv/Lib/site-packages/flask/app.py",
+		"/C/Users/Viesturs/Downloads/jquery-ui-1.11.0.custom/jquery-ui-1.11.0.custom/jquery-ui.structure.css",
+		"/C/Users/Viesturs/Darbs/perkamkopa/www/root/less/style.less",
+		"/C/Users/Viesturs/Documents/lietas/note_app_win/note_app.sublime-project",
+		"/C/Users/Viesturs/AppData/Roaming/Sublime Text 3/Packages/Less2Css/README.md",
+		"/C/Users/Viesturs/Documents/lietas/note_app_win/templates/login.html",
+		"/C/Users/Viesturs/Documents/lietas/note_app_win/static/style.css",
+		"/C/Users/Viesturs/Documents/lietas/note_app_win/static/less/style.css",
+		"/C/Users/Viesturs/AppData/Roaming/Sublime Text 3/Packages/Less2Css/less2css.sublime-settings",
+		"/C/Users/Viesturs/Documents/lietas/note_app_win/static/lib/test.less",
+		"/C/Users/Viesturs/Documents/lietas/note_app_win/static/lib/test.css",
+		"/C/Users/Viesturs/Documents/lietas/note_app_win/noteapp.py",
+		"/C/Users/Viesturs/Documents/lietas/test_node/mailtest/node_modules/express/lib/application.js",
+		"/C/Users/Viesturs/Documents/lietas/test_node/mailtest/views/error.hjs",
+		"/C/Users/Viesturs/Documents/lietas/hvtest/www/mail_html2.php",
+		"/C/Users/Viesturs/Documents/lietas/hvtest/www/gmail_test.php",
+		"/C/Users/Viesturs/Documents/lietas/hvtest/Vagrantfile",
+		"/C/Users/Viesturs/Documents/lietas/crazy_email/html/index.php",
+		"/C/Users/Viesturs/Downloads/index.php",
+		"/C/Users/Viesturs/Documents/lietas/hvtest/www/index.php",
+		"/C/Users/Viesturs/Documents/lietas/hvtest/manifests/site.pp",
+		"/C/Users/Viesturs/Documents/lietas/hvtest/manifests/default.pp",
+		"/C/Users/Viesturs/Documents/lietas/crazy_email/puphpet/puppet/manifest.pp",
+		"/C/Users/Viesturs/Documents/lietas/v-suse/Vagrantfile",
+		"/C/Users/Viesturs/Darbs/vagrant/html/index.php",
+		"/C/Users/Viesturs/Darbs/vagrant/html/gmail_test.php",
+		"/C/Users/Viesturs/Documents/lietas/mailgrant/puphpet/config.yaml",
+		"/C/Users/Viesturs/Documents/lietas/mailgrant/puphpet/puppet/manifest.pp",
+		"/C/Users/Viesturs/Documents/lietas/mailgrant/puphpet/puppet/Puppetfile",
+		"/C/Users/Viesturs/Documents/lietas/mailgrant/puphpet/puppet/hiera.yaml",
+		"/C/Users/Viesturs/Darbs/vagrant/html/test.php",
+		"/C/Users/Viesturs/Documents/lietas/mailgrant/Vagrantfile",
+		"/C/Users/Viesturs/Documents/lietas/crazy_email/mailtest.dev/index.html",
+		"/C/Users/Viesturs/Documents/lietas/crazy_email/html/index.html",
+		"/C/Users/Viesturs/Downloads/opensuse-13.1-x86_64-0.3.0-virtualbox/opensuse-13.1-x86_64-0.3.0-virtualbox",
+		"/C/Users/Viesturs/Darbs/vagrant/html/emailstatus.txt",
+		"/C/Users/Viesturs/Documents/lietas/jakana mājasdarbi/7/lapa/2/res/exmplmenu_var.js",
+		"/C/Users/Viesturs/Documents/lietas/jakana mājasdarbi/7/lapa/2/exmplmenu_var.js",
+		"/C/Users/Viesturs/Documents/lietas/jakana mājasdarbi/7/lapa/2/config.htm",
+		"/C/Users/Viesturs/Desktop/3/files/index.htm",
+		"/C/Users/Viesturs/Desktop/3/files/1_lapa.htm",
+		"/C/Users/Viesturs/Desktop/3/files/2_lapa.htm",
+		"/C/Users/Viesturs/Desktop/3/files/3_lapa.htm",
+		"/E/E-komercija/2/3.html",
+		"/E/E-komercija/2/2.html",
+		"/C/Users/Viesturs/AppData/Roaming/Sublime Text 3/Packages/Highlight/SublimeHighlight.sublime-settings",
+		"/C/Users/Viesturs/AppData/Roaming/Sublime Text 3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
+		"/C/Users/Viesturs/AppData/Roaming/Sublime Text 3/Packages/User/Distraction Free.sublime-settings",
+		"/C/Users/Viesturs/AppData/Roaming/Sublime Text 3/Packages/User/HTML 5.sublime-settings",
+		"/C/Users/Viesturs/AppData/Roaming/Sublime Text 3/Packages/User/php in html.sublime-snippet",
+		"/C/Users/Viesturs/Darbs/vagrant/swift/lib/classes/Swift/Transport/Esmtp/AuthHandler.php",
+		"/C/Users/Viesturs/Darbs/vagrant/swift/test-suite/lib/simpletest/authentication.php",
+		"/C/Users/Viesturs/Darbs/vagrant/html/phpmyadmin/js/ajax.js",
+		"/C/Users/Viesturs/Darbs/vagrant/html/phpmyadmin/libraries/advisory_rules.txt",
+		"/C/Users/Viesturs/Darbs/vagrant/swift/tests/unit/Swift/Mime/AbstractMimeEntityTest.php",
+		"/C/Users/Viesturs/Downloads/lab_7_gandriz/uzdevums/uzdevums/fails.dat",
+		"/C/Users/Viesturs/Documents/lietas/puphpet/VabIV6/www/html/index.php",
+		"/C/Users/Viesturs/Documents/lietas/HTML5 Local Storage/index.html",
+		"/C/Users/Viesturs/Documents/lietas/puphpet/VabIV6/puppet/manifests/default.pp",
+		"/C/Users/Viesturs/Documents/lietas/puphpet/VabIV6/puppet/Puppetfile",
+		"/C/Program Files/OpenVPN/config/client.ovpn",
+		"/C/Users/Viesturs/Documents/lietas/puphpet/VabIV6/www/index.html",
+		"/C/Users/Viesturs/Documents/lietas/puphpet/VabIV6/Vagrantfile",
+		"/C/Users/Viesturs/Documents/lietas/puphpet/VabIV6/www/test.php",
+		"/C/Users/Viesturs/Documents/lietas/puphpet/VabIV6/www/serveris.php",
+		"/C/Program Files (x86)/OpenVPN Technologies/OpenVPN Client/etc/settings.json",
+		"/C/Program Files (x86)/OpenVPN Technologies/OpenVPN Client/etc/as.conf",
+		"/C/Users/Viesturs/Desktop/client.ovpn",
+		"/C/Users/Viesturs/Downloads/viesturst/viesturst",
+		"/C/Users/Viesturs/VirtualBox VMs/ubu/Logs/VBox.log.3",
+		"/C/Users/Viesturs/Documents/lietas/puphpet/VabIV6/www/html/index.html",
+		"/C/Users/Viesturs/Documents/lietas/puphpet/VabIV6/www/index.php"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"list",
+			"template",
+			"e",
+			"contacts",
+			"script",
+			"ContactItemView",
+			"ContactManager",
+			">\n",
+			"firstName",
+			"lastName",
+			"\"\n",
+			"				{\n					firstName: \"Alice\",\n					lastName: \"Arten\",\n					phoneNumber: \"555-0184\"\n				},\n	",
+			"			{\n				firstName: \"Alice\",\n				lastName: \"Arten\",\n				phoneNumber: \"555-0184\"\n			},\n",
+			"{\n				firstName: \"Alice\",\n				lastName: \"Arten\",\n				phoneNumber: \"555-0184\"\n			},",
+			"p>",
+			"ContactView",
+			"ContactManager",
+			"\"></",
+			"print",
+			"();\n",
+			"height",
+			"())",
+			"addContent",
+			"\",\n",
+			"'));\n",
+			"width",
+			"desktop",
+			"txt",
+			"'});",
+			"content",
+			"width",
+			"posy",
+			"posx",
+			"desktops",
+			"(\\/=>?)[0-9]",
+			"\\bNote\\b",
+			"Note",
+			"reqest",
+			"dlist",
+			"desk",
+			"curDesktop",
+			"desktopAttr",
+			"request.json",
+			"&&",
+			"type",
+			"noteAttrs['type'],",
+			",",
+			"?",
+			",",
+			"parameter",
+			"param",
+			"noteParams",
+			"requtes.json",
+			" )",
+			",",
+			"Desktop",
+			"desktops",
+			"Desktop",
+			"name",
+			"\",\n",
+			" #",
+			"cursor",
+			"view_desktop",
+			"index",
+			"methods",
+			"id",
+			"text",
+			", ",
+			"entry",
+			"entries",
+			"cur",
+			"notes",
+			"entries",
+			";\n",
+			"  ",
+			";",
+			"{",
+			";",
+			"{",
+			"Flaskr",
+			"		<",
+			"from",
+			"password",
+			">\n",
+			"\\r?\\n|\\r",
+			"\\n?\\r\\n|\\r",
+			"(\"",
+			"/\\*.+\\*/",
+			"(?<=\\{)[	\\nA-z0-9 ](?=\\})",
+			"node",
+			"3000",
+			"();\n",
+			"implode",
+			"aaddresses",
+			"yahoo",
+			"gmail",
+			"GMail",
+			"package",
+			"Exec",
+			"puppet",
+			"ubuntu",
+			"ubuntu-prec",
+			"null",
+			"'",
+			"new",
+			"delfi",
+			"		<td></td>\n		<td></td>\n		<td></td>\n		<td></td>\n		<td></td>\n",
+			">\n",
+			"A",
+			"ul.nav > li > a:hover {\n	text-decoration: underline;\n}\n",
+			"ul.nav > li > a:hover {\n	text-decoration: underline;\n}",
+			"></",
+			"span",
+			"div",
+			"mp4",
+			"vagrant.network",
+			"Mūzikas",
+			"audio",
+			"55",
+			"200",
+			"55",
+			"html",
+			"1",
+			"<tr>\n				<td><img src=\"res/smile.png\" width=\"30\"></td>\n				<td><a href=\"1_lapa.html\">Uz 1.lapu</a></td>\n			</tr>\n",
+			";",
+			"_",
+			"this_is_not_reflowable__",
+			"fixed"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 5,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2032,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2032,
+								2032
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"syntax_mgr_loaded": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 607.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/apps/contacts/contacts_app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 419,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								419,
+								419
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/apps/contacts/show/show_view.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 185,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								175,
+								175
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/apps/contacts/list/list_controller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 818,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								476,
+								476
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 217,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								217,
+								217
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/apps/contacts/list/list_view.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1184,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								508,
+								508
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 135.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/apps/contacts/show/show_controller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 282,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								282,
+								282
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/C/Users/Viesturs/Documents/lietas/froont/Contact Manager/assets/js/entities/contacts.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1606,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								101,
+								101
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 28.0,
+						"translation.y": 540.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 29.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 100.0
+	},
+	"output.scope_viewer":
+	{
+		"height": 100.0
+	},
+	"project": "ContactManager.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"index",
+				"html\\index.php"
+			],
+			[
+				"auth",
+				"swift\\lib\\classes\\Swift\\Transport\\Esmtp\\AuthHandler.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 150.0,
+		"selected_items":
+		[
+			[
+				"render",
+				"render"
+			]
+		],
+		"width": 392.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 162.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
