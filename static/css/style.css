@@ -25,26 +25,8 @@ h1 {
 h2 {
   font-size: 1.2em;
 }
-.sidebar {
-  width: 230px;
-  height: 100%;
-  background-color: #1d2027;
-  color: rgba(255, 255, 255, 0.4);
-  display: inline-block;
-  vertical-align: top;
-  z-index: 1;
-  position: relative;
-}
-.sidebar .top {
-  padding-top: 38px;
-}
-.sidebar .controls {
-  margin: 43px 0;
-  height: 75px;
-  text-align: center;
-}
-.sidebar .controls .note-txt,
-.sidebar .controls .note-img {
+.note-txt,
+.note-img {
   display: inline-block;
   text-decoration: none;
   width: 76px;
@@ -55,11 +37,11 @@ h2 {
   text-align: center;
   position: relative;
 }
-.sidebar .controls .note-txt {
+.note-txt {
   background-color: #fd8e09;
   color: #995401;
 }
-.sidebar .controls .note-txt:before {
+.note-txt:before {
   content: "";
   position: absolute;
   right: 0;
@@ -68,7 +50,7 @@ h2 {
   border-style: solid;
   border-color: #995401 transparent;
 }
-.sidebar .controls .note-txt:after {
+.note-txt:after {
   content: "";
   position: absolute;
   bottom: -8px;
@@ -78,11 +60,11 @@ h2 {
   border-style: solid;
   border-color: #fd8e09;
 }
-.sidebar .controls .note-img {
+.note-img {
   background-color: #71459a;
   color: #3a244f;
 }
-.sidebar .controls .note-img:before {
+.note-img:before {
   content: "";
   position: absolute;
   right: 0;
@@ -91,7 +73,7 @@ h2 {
   border-style: solid;
   border-color: #3a244f transparent;
 }
-.sidebar .controls .note-img:after {
+.note-img:after {
   content: "";
   position: absolute;
   bottom: -8px;
@@ -101,12 +83,33 @@ h2 {
   border-style: solid;
   border-color: #71459a;
 }
+.sidebar {
+  width: 230px;
+  height: 100%;
+  background-color: #1d2027;
+  color: rgba(255, 255, 255, 0.4);
+  display: inline-block;
+  vertical-align: top;
+  z-index: 1;
+  position: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.sidebar .top {
+  padding-top: 38px;
+}
+.sidebar .controls {
+  padding: 43px 0;
+  height: 75px;
+  text-align: center;
+}
 .sidebar ul.desktops {
   font-size: 14px;
   list-style: none;
   padding: 0;
   margin: 0;
   font-weight: bold;
+  overflow-y: auto;
 }
 .sidebar ul.desktops li.active a {
   background-color: rgba(255, 255, 255, 0.4);
@@ -163,14 +166,14 @@ h2 {
   display: inline-block;
   height: 100%;
   width: 100%;
-  margin-left: -231px;
   vertical-align: top;
-  overflow: auto;
+  overflow: hidden;
 }
 .board .note-wrapper {
-  padding-left: 231px;
+  margin-left: 231px;
   height: 100%;
   position: relative;
+  overflow: auto;
 }
 .board .note {
   width: 244px;

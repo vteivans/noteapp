@@ -23,20 +23,4 @@
 	{% else %}
 		<em style="position: absolute; left: 50%; top: 0;">No notes here jet.</em>
 	{% endfor %}
-	<script>
-	NoteApp.notes = new Notes([
-		{% for note in notes %}
-		{
-			id: {{ note.id }},
-			type: '{{ note.type }}',
-			content:'{{ note.content }}',
-			desktop:'{{ note.desktop }}',
-			posx: {{ note.posx }},
-			posy: {{ note.posy }},
-			width: {{ note.width if note.width else 0 }},
-			height: {{ note.height if note.height else 0 }},
-		},
-		{% endfor %}
-	]);
-</script>
 {% endblock %}

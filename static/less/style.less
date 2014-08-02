@@ -24,6 +24,27 @@ h2 {
 	font-size: 1.2em;
 }
 
+.note-txt, .note-img {
+	.aButton(inline-block);
+	width: 76px;
+	margin: 0 5px;
+	padding: 22px 0;
+	font-size: 28px;
+	line-height: 31px;
+	text-align: center;
+	position: relative;
+}
+
+.note-txt {
+	.noteColor(@textNoteColor);
+	.foldCorner(@textNoteColor, 8px);
+}
+
+.note-img {
+	.noteColor(@imageNoteColor);
+	.foldCorner(@imageNoteColor, 8px);
+}
+
 .sidebar {
 	width: 230px;
 	height: 100%;
@@ -32,39 +53,19 @@ h2 {
 	display: inline-block;
 	vertical-align: top;
 	z-index: 1;
-	position: relative;
-	// overflow-y: auto;
-	// overflow-x: visible;
+	position: fixed;
+	// overflow-y: scroll;
+	overflow-y: auto;
+	overflow-x: hidden;
 
 	.top {
 		padding-top: 38px;
 	}
 
 	.controls {
-		margin: 43px 0;
+		padding: 43px 0;
 		height: 75px;
 		text-align: center;
-
-		.note-txt, .note-img {
-			.aButton(inline-block);
-			width: 76px;
-			margin: 0 5px;
-			padding: 22px 0;
-			font-size: 28px;
-			line-height: 31px;
-			text-align: center;
-			position: relative;
-		}
-
-		.note-txt {
-			.noteColor(@textNoteColor);
-			.foldCorner(@textNoteColor, 8px);
-		}
-
-		.note-img {
-			.noteColor(@imageNoteColor);
-			.foldCorner(@imageNoteColor, 8px);
-		}
 	}
 
 	ul.desktops {
@@ -73,6 +74,7 @@ h2 {
 		padding: 0;
 		margin: 0;
 		font-weight: bold;
+		overflow-y: auto;
 
 		li.active {
 			a {
@@ -135,14 +137,15 @@ h2 {
 	display: inline-block;
 	height: 100%;
 	width: 100%;
-	margin-left: -231px;
+	// margin-left: -231px;
 	vertical-align: top;
-	overflow: auto;
+	overflow: hidden;
 
 	.note-wrapper {
-		padding-left: 231px;
+		margin-left: 231px;
 		height: 100%;
 		position: relative;
+		overflow: auto;
 	}
 
 	.note {

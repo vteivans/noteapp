@@ -40,6 +40,7 @@ var DesktopList = Backbone.View.extend({
 		this.listenTo(this.collection, "change", this.render);
 		this.template = _.template('<li class="<%= active %>"><a class="desktop-item" href="<%= url %>" data-id="<%= id %>"><i class="icon">&nbsp;</i><%= name %></a></li>');
 		this.editorTemplate = _.template('<li><div><i class="icon">&nbsp;</i><input id="desktop-name-input" type="text" data-id="<%= id %>" value="<%= name %>"></div></li>');
+		this.$el.css('height', $(document).height() - this.$el.siblings('.top')[0].scrollHeight - this.$el.siblings('#add-desktop')[0].scrollHeight);
 	},
 
 	render: function() {
@@ -294,12 +295,16 @@ var Controls = Backbone.View.extend({
 
 		txt.draggable({
 			revert: true,
-			helper: 'clone'
+			helper: 'clone',
+			appendTo: 'body',
+			zIndex: 100
 		});
 
 		img.draggable({
 			revert: true,
-			helper: 'clone'
+			helper: 'clone',
+			appendTo: 'body',
+			zIndex: 100
 		});
 
 		el.append(txt);
@@ -333,9 +338,66 @@ var Controls = Backbone.View.extend({
 
 
 $(function() {
-	NoteApp.desktopList = new DesktopList({collection: NoteApp.desktops});
+	
+	
+	NoteApp.desktops.fetch({
+		success: function (data) {
+			NoteApp.desktopList = new DesktopList({collection: NoteApp.desktops});		
+		}
+	});
+	
+	NoteApp.notes.fetch({
+		success: function (data) {
+			NoteApp.bord = new NoteBord({collection: NoteApp.notes});
+
+			$('#board .note').draggable({
+				containment: 'parent',
+				cursor: 'move',
+				revert: 'invalid',
+				zIndex: 100,
+				stop: function (v) {
+					var elem = $(this);
+					var note = NoteApp.notes.get(elem.data('id'));
+					note.set('posx', this.offsetLeft);
+					note.set('posy', this.offsetTop);
+					note.save();
+
+				}
+			});
+
+			$('#board').droppable({
+				drop: function (event, ui) {
+					var offset = this.offsetLeft;
+
+					if (ui.draggable.hasClass('note-create')) {
+						if (ui.helper.offset().left < offset) {
+							return false;
+						}
+						var note = {
+							content: '',
+							posx: ui.helper.offset().left - offset,
+							posy: ui.helper.offset().top - offset
+						};
+
+						if (ui.draggable.hasClass('note-img')) {
+							note['type'] = 'img';	
+						} else {
+							note['type'] = 'txt';
+						}
+
+						note = new Note(note);
+						NoteApp.notes.add(note);
+						note.save();
+					}
+				}
+			});
+		}
+	});
+
 	NoteApp.controls = new Controls();
-	NoteApp.bord = new NoteBord({collection: NoteApp.notes});
+
+	// NoteApp.desktopList.render();
+	// NoteApp.bord.render();
 
 	var sidebar = $('#sidebar');
 	sidebar.children('.top').append(NoteApp.controls.el);
@@ -349,45 +411,7 @@ $(function() {
 	});
 	sidebar.append(addDesktop);
 
-	$('#board .note').draggable({
-		containment: 'parent',
-		cursor: 'move',
-		revert: 'invalid',
-		stop: function (v) {
-			var elem = $(this);
-			var note = NoteApp.notes.get(elem.data('id'));
-			note.set('posx', this.offsetLeft);
-			note.set('posy', this.offsetTop);
-			note.save();
-
-		}
-	});
-
-	$('#board').droppable({
-		drop: function (event, ui) {
-
-			if (ui.draggable.hasClass('note-create')) {
-				if (ui.helper.offset().left < 231) {
-					return false;
-				}
-				var note = {
-					content: '',
-					posx: ui.helper.offset().left,
-					posy: ui.helper.offset().top
-				};
-
-				if (ui.draggable.hasClass('note-img')) {
-					note['type'] = 'img';	
-				} else {
-					note['type'] = 'txt';
-				}
-
-				note = new Note(note);
-				NoteApp.notes.add(note);
-				note.save();
-			}
-		}
-	});
+	
 
 	$('#sidebar').droppable({
 		greedy: true,

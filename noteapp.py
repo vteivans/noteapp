@@ -147,8 +147,8 @@ def notes (desktop_id = None, id = None):
 			'type': ['img', 'txt'],
 			'desktop': int(desktop_id),
 			'content': '',
-			'posx': 230,
-			'posy': 1,
+			'posx': 0,
+			'posy': 0,
 			'width': None,
 			'height': None
 		}
