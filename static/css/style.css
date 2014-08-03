@@ -25,23 +25,23 @@ h1 {
 h2 {
   font-size: 1.2em;
 }
-.note-txt,
-.note-img {
+a.note-txt,
+a.note-img {
   display: inline-block;
   text-decoration: none;
   width: 76px;
   margin: 0 5px;
-  padding: 22px 0;
+  padding: 22px 0 14px;
   font-size: 28px;
   line-height: 31px;
   text-align: center;
   position: relative;
 }
-.note-txt {
+a.note-txt {
   background-color: #fd8e09;
   color: #995401;
 }
-.note-txt:before {
+a.note-txt:before {
   content: "";
   position: absolute;
   right: 0;
@@ -50,7 +50,7 @@ h2 {
   border-style: solid;
   border-color: #995401 transparent;
 }
-.note-txt:after {
+a.note-txt:after {
   content: "";
   position: absolute;
   bottom: -8px;
@@ -60,11 +60,11 @@ h2 {
   border-style: solid;
   border-color: #fd8e09;
 }
-.note-img {
+a.note-img {
   background-color: #71459a;
   color: #3a244f;
 }
-.note-img:before {
+a.note-img:before {
   content: "";
   position: absolute;
   right: 0;
@@ -73,7 +73,7 @@ h2 {
   border-style: solid;
   border-color: #3a244f transparent;
 }
-.note-img:after {
+a.note-img:after {
   content: "";
   position: absolute;
   bottom: -8px;

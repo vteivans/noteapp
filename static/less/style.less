@@ -24,25 +24,28 @@ h2 {
 	font-size: 1.2em;
 }
 
-.note-txt, .note-img {
-	.aButton(inline-block);
-	width: 76px;
-	margin: 0 5px;
-	padding: 22px 0;
-	font-size: 28px;
-	line-height: 31px;
-	text-align: center;
-	position: relative;
-}
+a {
 
-.note-txt {
-	.noteColor(@textNoteColor);
-	.foldCorner(@textNoteColor, 8px);
-}
+	&.note-txt, &.note-img {
+		.aButton(inline-block);
+		width: 76px;
+		margin: 0 5px;
+		padding: 22px 0 14px;
+		font-size: 28px;
+		line-height: 31px;
+		text-align: center;
+		position: relative;
+	}
 
-.note-img {
-	.noteColor(@imageNoteColor);
-	.foldCorner(@imageNoteColor, 8px);
+	&.note-txt {
+		.noteColor(@textNoteColor);
+		.foldCorner(@textNoteColor, 8px);
+	}
+
+	&.note-img {
+		.noteColor(@imageNoteColor);
+		.foldCorner(@imageNoteColor, 8px);
+	}
 }
 
 .sidebar {

@@ -1,29 +1,4 @@
-var Desktop = Backbone.Model.extend(),
-	Desktops = Backbone.Collection.extend({
-		Model: Desktop,
-		url: '/desktops'
-	});
-
-var Note = Backbone.Model.extend(),
-	Notes = Backbone.Collection.extend({
-		Model: Note,
-		url: function () {
-			var desk = document.location.pathname.match(/^\/[0-9]+/);
-			
-			if (desk) {
-				desk = desk[0].replace(/\//, '');
-			} else {
-				desk = 1;
-			}
-			return '/notes/desktop/' + desk;
-		}
-	});
-
-var NoteApp = {
-	desktops: new Desktops({}),
-	notes: new Notes({})
-}
-
+var NoteBoard = new Marionette.Application(); 
 
 var DesktopList = Backbone.View.extend({
 
@@ -36,7 +11,7 @@ var DesktopList = Backbone.View.extend({
 	},
 
 	initialize: function() {
-		this.collection = NoteApp.desktops;
+		// this.collection = NoteBoard.desktops;
 		this.listenTo(this.collection, "change", this.render);
 		this.template = _.template('<li class="<%= active %>"><a class="desktop-item" href="<%= url %>" data-id="<%= id %>"><i class="icon">&nbsp;</i><%= name %></a></li>');
 		this.editorTemplate = _.template('<li><div><i class="icon">&nbsp;</i><input id="desktop-name-input" type="text" data-id="<%= id %>" value="<%= name %>"></div></li>');
@@ -106,7 +81,7 @@ var NoteBord = Backbone.View.extend({
 	},
 
 	initialize: function() {
-		// this.collection = NoteApp.desktops;
+		// this.collection = NoteBoard.desktops;
 		this.listenTo(this.collection, "change:id remove", this.render);
 		this.template = _.template('<div class="note note-<%= type %> <%= class_name %>" style="left:<%= posx %>px;top:<%= posy %>px;" data-id="<%= note_id %>"><a href="javascript:;" class="remove-note">x</a><%= content %></div>');
 		this.templatePlaceHolder = _.template('<span class="place-holder"><%= text %></span>');
@@ -178,7 +153,7 @@ var NoteBord = Backbone.View.extend({
 					revert: 'invalid',
 					stop: function (v) {
 						var elem = $(this);
-						var note = NoteApp.notes.get(elem.data('id'));
+						var note = NoteBoard.notes.get(elem.data('id'));
 						note.set('posx', this.offsetLeft);
 						note.set('posy', this.offsetTop);
 						note.save();
@@ -235,7 +210,7 @@ var NoteBord = Backbone.View.extend({
 		var node = $(event.target),
 			note = node.parent(),
 			content = $.trim(node.text()),
-			model = NoteApp.notes.get(note.data('id'));
+			model = NoteBoard.notes.get(note.data('id'));
 
 
 
@@ -258,7 +233,7 @@ var NoteBord = Backbone.View.extend({
 
 				model.set('content', content);
 				model.save();
-				NoteApp.bord.render();
+				NoteBoard.bord.render();
 			}
 	},
 	cancelEdit: function(e) {
@@ -319,7 +294,7 @@ var Controls = Backbone.View.extend({
 			posy: 20,
 			type: 'txt'
 		});
-		NoteApp.notes.add(note);
+		NoteBoard.notes.add(note);
 		note.save();
 	},
 
@@ -330,87 +305,76 @@ var Controls = Backbone.View.extend({
 			posy: 40,
 			type: 'img'
 		});
-		NoteApp.notes.add(note);
+		NoteBoard.notes.add(note);
 		note.save();
 	}
 });
 
+NoteBoard.on('start', function () {
 
-
-$(function() {
-	
-	
-	NoteApp.desktops.fetch({
-		success: function (data) {
-			NoteApp.desktopList = new DesktopList({collection: NoteApp.desktops});		
-		}
+	var desktops = NoteBoard.request("desktop:entities", function(data) {
+		NoteBoard.desktopList = new DesktopList({collection: desktops});
 	});
-	
-	NoteApp.notes.fetch({
-		success: function (data) {
-			NoteApp.bord = new NoteBord({collection: NoteApp.notes});
 
-			$('#board .note').draggable({
-				containment: 'parent',
-				cursor: 'move',
-				revert: 'invalid',
-				zIndex: 100,
-				stop: function (v) {
-					var elem = $(this);
-					var note = NoteApp.notes.get(elem.data('id'));
-					note.set('posx', this.offsetLeft);
-					note.set('posy', this.offsetTop);
-					note.save();
+	var notes = NoteBoard.request("note:entities", function(data) {
+		NoteBoard.bord = new NoteBord({collection: notes});
 
-				}
-			});
+		$('#board .note').draggable({
+			containment: 'parent',
+			cursor: 'move',
+			revert: 'invalid',
+			zIndex: 100,
+			stop: function (v) {
+				var elem = $(this);
+				var note = notes.get(elem.data('id'));
+				note.set('posx', this.offsetLeft);
+				note.set('posy', this.offsetTop);
+				note.save();
 
-			$('#board').droppable({
-				drop: function (event, ui) {
-					var offset = this.offsetLeft;
+			}
+		});
 
-					if (ui.draggable.hasClass('note-create')) {
-						if (ui.helper.offset().left < offset) {
-							return false;
-						}
-						var note = {
-							content: '',
-							posx: ui.helper.offset().left - offset,
-							posy: ui.helper.offset().top - offset
-						};
+		$('#board').droppable({
+			drop: function (event, ui) {
+				var offset = this.offsetLeft;
 
-						if (ui.draggable.hasClass('note-img')) {
-							note['type'] = 'img';	
-						} else {
-							note['type'] = 'txt';
-						}
-
-						note = new Note(note);
-						NoteApp.notes.add(note);
-						note.save();
+				if (ui.draggable.hasClass('note-create')) {
+					if (ui.helper.offset().left < offset) {
+						return false;
 					}
+					var note = {
+						content: '',
+						posx: ui.helper.offset().left - offset,
+						posy: ui.helper.offset().top - offset
+					};
+
+					if (ui.draggable.hasClass('note-img')) {
+						note['type'] = 'img';	
+					} else {
+						note['type'] = 'txt';
+					}
+
+					note = new Note(note);
+					notes.add(note);
+					note.save();
 				}
-			});
-		}
+			}
+		});
 	});
 
-	NoteApp.controls = new Controls();
-
-	// NoteApp.desktopList.render();
-	// NoteApp.bord.render();
+	NoteBoard.controls = new Controls();
 
 	var sidebar = $('#sidebar');
-	sidebar.children('.top').append(NoteApp.controls.el);
+	sidebar.children('.top').append(NoteBoard.controls.el);
 
 	var addDesktop = $('<a id="add-desktop" class="add-desktop" href="#">').html('+');
 	addDesktop.click(function (e) {
 		e.preventDefault();
 		template = _.template('<li><div><i class="icon">&nbsp;</i><input id="desktop-name-input" type="text"></div></li>');
-		NoteApp.desktopList.add(template);
+		NoteBoard.desktopList.add(template);
 		$('#desktop-name-input').focus();
 	});
 	sidebar.append(addDesktop);
-
 	
 
 	$('#sidebar').droppable({
@@ -420,5 +384,4 @@ $(function() {
 		}
 	});
 });
- 
 
