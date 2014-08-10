@@ -152,8 +152,6 @@ a {
 	}
 
 	.note {
-		width: 244px;
-		height: 244px;
 		position: absolute;
 		text-align: center;
 		z-index: 1;
@@ -165,7 +163,10 @@ a {
 		}
 
 		&.note-txt {
-			line-height: 244px;
+			width: 216px;
+			height: 220px;
+			padding: 24px 14px 0;
+			line-height: 220px;
 			.noteColor(@textNoteColor);
 			.foldCorner(@textNoteColor, 24px);
 
@@ -178,12 +179,24 @@ a {
 		}
 
 		&.note-img {
-			line-height: 244px;
 			.noteColor(@imageNoteColor);
+			max-width: 244px;
+			max-height: 268px;
+			line-height: 1px;
+
+			img.note-content {
+				max-width: 244px;
+				max-height: 268px;
+			}
 
 			&.empty {
+				line-height: 220px;
+				width: 244px;
+				height: 220px;
+				padding-top: 24px;
 				.foldCorner(@imageNoteColor, 24px);
 			}
+
 		}
 
 		.remove-note {
@@ -203,6 +216,15 @@ a {
 			.remove-note {
 				display: block;
 			}
+		}
+
+		textarea.note-content {
+			width: 190px;
+			height: 210px;
+			font-style: 14px;
+			line-height: 1;
+			display: inline-block;
+			resize: none;
 		}
 	}
 }

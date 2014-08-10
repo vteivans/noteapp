@@ -1,4 +1,7 @@
 var NoteBoard = new Marionette.Application(); 
+NoteBoard.addRegions({
+	boardRegion: "#board-region"
+});
 
 var DesktopList = Backbone.View.extend({
 
@@ -15,6 +18,11 @@ var DesktopList = Backbone.View.extend({
 		this.listenTo(this.collection, "change", this.render);
 		this.template = _.template('<li class="<%= active %>"><a class="desktop-item" href="<%= url %>" data-id="<%= id %>"><i class="icon">&nbsp;</i><%= name %></a></li>');
 		this.editorTemplate = _.template('<li><div><i class="icon">&nbsp;</i><input id="desktop-name-input" type="text" data-id="<%= id %>" value="<%= name %>"></div></li>');
+		$(window).on("resize", _.bind(this.resize, this));
+		this.resize();
+	},
+
+	resize: function (e) {
 		this.$el.css('height', $(document).height() - this.$el.siblings('.top')[0].scrollHeight - this.$el.siblings('#add-desktop')[0].scrollHeight);
 	},
 
@@ -67,183 +75,6 @@ var DesktopList = Backbone.View.extend({
 });
 
 
-var NoteBord = Backbone.View.extend({
-
-	el: 'div#board',
-	className: 'note-wrapper',
-
-	events: {
-		"click .remove-note":"removeNote",
-		"click .place-holder":"editContent",
-		"blur .place-holder":"setContent",
-		"dblclick .note-content" : "editContent",
-		"keyup .note":"cancelEdit",
-	},
-
-	initialize: function() {
-		// this.collection = NoteBoard.desktops;
-		this.listenTo(this.collection, "change:id remove", this.render);
-		this.template = _.template('<div class="note note-<%= type %> <%= class_name %>" style="left:<%= posx %>px;top:<%= posy %>px;" data-id="<%= note_id %>"><a href="javascript:;" class="remove-note">x</a><%= content %></div>');
-		this.templatePlaceHolder = _.template('<span class="place-holder"><%= text %></span>');
-		this.templateContentTxt = _.template('<span class="note-content"><%= content %></span>');
-		this.templateContentImg = _.template('<img class="note-content" src="<%= content %>" width="<%= width %>" height="<%= height %>">');
-		this.placeHolderTxt = 'enter your text';
-		this.placeHolderImg = 'image url here';
-
-	},
-
-	render: function() {
-		var el = this.$el,
-			template = this.template,
-			self = this;
-
-		el.empty();
-		this.collection.each(
-			function(note){
-				var nte = note.toJSON();
-				var content = '';
-
-				switch (nte['type']) {
-
-					case 'img':
-						if (nte['content']) {
-							content = self.templateContentImg({
-								content: nte['content'], 
-								width: (nte['width'] ? nte['width'] : ''), 
-								height: (nte['height'] ? nte['height'] : '')
-							});
-							nte['class_name'] = '';
-						} else {
-							content = self.templatePlaceHolder({text: self.placeHolderImg});
-							nte['class_name'] = 'empty';
-						}
-						break;
-
-					case 'txt':
-						if (nte['content']) {
-							content = self.templateContentTxt({content: nte['content']});
-							nte['class_name'] = '';
-						} else {
-							content = self.templatePlaceHolder({text: self.placeHolderTxt});
-							nte['class_name'] = 'empty';
-						}
-						break;
-
-					default:
-						return;
-
-				}
-
-				var elem = template({
-					note_id: nte['id'],
-					type: nte['type'],
-					class_name: nte['class_name'],
-					posx: nte['posx'],
-					posy: nte['posy'],
-					content: content
-				});
-
-				var node = $(elem);
-
-				el.append(node);
-
-				node.draggable({
-					containment: 'parent',
-					cursor: 'move',
-					revert: 'invalid',
-					stop: function (v) {
-						var elem = $(this);
-						var note = NoteBoard.notes.get(elem.data('id'));
-						note.set('posx', this.offsetLeft);
-						note.set('posy', this.offsetTop);
-						note.save();
-
-					}
-				});
-			});
-		return this;
-	},
-
-	add: function (elem) {
-		this.$el.append(elem);
-	},
-
-	removeNote: function(event) {
-		var noteNode = $(event.target.parentNode),
-			note = this.collection.get(noteNode.data('id'));
-
-		if (note.get('content')) {
-			if (confirm('Delete the note?')) {
-				note.destroy();
-			}
-		} else {
-			note.destroy();
-		}
-	},
-	editContent: function(event) {
-		var node = $(event.target),
-			note = node.parent();
-
-
-		if (node.hasClass('place-holder')) {
-			node.attr('contenteditable', true);
-			node.html('');
-			node.focus();
-		} else if (node.hasClass('note-content')) {
-			var placeHolder;
-
-			if (note.hasClass('note-img')) {
-				placeHolder = $(this.templatePlaceHolder({text: node.attr('src')}));
-			} else {
-				placeHolder = $(this.templatePlaceHolder({text: node.text()}));
-			}
-
-			node.remove();
-			placeHolder.appendTo(note);
-			placeHolder.attr('contenteditable', true);
-			placeHolder.on('blur',this.setContent);
-			placeHolder.focus();
-			placeHolder.select();
-		}
-	},
-	setContent: function (event) {
-		var node = $(event.target),
-			note = node.parent(),
-			content = $.trim(node.text()),
-			model = NoteBoard.notes.get(note.data('id'));
-
-
-
-			if (model) {
-
-				if (note.hasClass('note-img')) {
-					var img = document.createElement('img');
-
-					img.src = content;
-					img = $(img);
-					node.remove();
-					note.append(img);
-
-					if (img.width() / img.height() > 1) {
-						model.set('height', note.height());
-					} else {
-						model.set('width', note.width());
-					}
-				}
-
-				model.set('content', content);
-				model.save();
-				NoteBoard.bord.render();
-			}
-	},
-	cancelEdit: function(e) {
-		if (e.which == 27) {
-			this.render();
-		}
-	}
-});
-
-
 var Controls = Backbone.View.extend({
 
 	tagName: 'div',
@@ -256,7 +87,7 @@ var Controls = Backbone.View.extend({
 	},
 
 	initialize: function() {
-		this.template = _.template('<a class="note-create note-<%= type %>" href="#"><%= text %></a>');
+		this.template = _.template('<a class="note-create note-<%= type %>" data-type="<%= type %>" href="#"><%= text %></a>');
 		this.render();
 	},
 
@@ -288,7 +119,7 @@ var Controls = Backbone.View.extend({
 	},
 
 	textNote: function () {
-		note = new Note({
+		var note = new NoteBoard.Entities.Note({
 			content: '',
 			posx: 250,
 			posy: 20,
@@ -299,7 +130,7 @@ var Controls = Backbone.View.extend({
 	},
 
 	imageNote: function () {
-		note = new Note({
+		var note = new NoteBoard.Entities.Note({
 			content: '',
 			posx: 280,
 			posy: 40,
@@ -316,51 +147,15 @@ NoteBoard.on('start', function () {
 		NoteBoard.desktopList = new DesktopList({collection: desktops});
 	});
 
-	var notes = NoteBoard.request("note:entities", function(data) {
-		NoteBoard.bord = new NoteBord({collection: notes});
+	var desk = document.location.pathname.match(/^\/[0-9]+/);
+	if (desk) {
+		desk = desk[0].replace(/\//, '');
+	} else {
+		desk = 1;
+	}
 
-		$('#board .note').draggable({
-			containment: 'parent',
-			cursor: 'move',
-			revert: 'invalid',
-			zIndex: 100,
-			stop: function (v) {
-				var elem = $(this);
-				var note = notes.get(elem.data('id'));
-				note.set('posx', this.offsetLeft);
-				note.set('posy', this.offsetTop);
-				note.save();
+	NoteBoard.Board.Controller.displayNotes(desk);
 
-			}
-		});
-
-		$('#board').droppable({
-			drop: function (event, ui) {
-				var offset = this.offsetLeft;
-
-				if (ui.draggable.hasClass('note-create')) {
-					if (ui.helper.offset().left < offset) {
-						return false;
-					}
-					var note = {
-						content: '',
-						posx: ui.helper.offset().left - offset,
-						posy: ui.helper.offset().top - offset
-					};
-
-					if (ui.draggable.hasClass('note-img')) {
-						note['type'] = 'img';	
-					} else {
-						note['type'] = 'txt';
-					}
-
-					note = new Note(note);
-					notes.add(note);
-					note.save();
-				}
-			}
-		});
-	});
 
 	NoteBoard.controls = new Controls();
 
@@ -376,7 +171,6 @@ NoteBoard.on('start', function () {
 	});
 	sidebar.append(addDesktop);
 	
-
 	$('#sidebar').droppable({
 		greedy: true,
 		drop: function (event, ui) {

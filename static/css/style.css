@@ -176,8 +176,6 @@ a.note-img:after {
   overflow: auto;
 }
 .board .note {
-  width: 244px;
-  height: 244px;
   position: absolute;
   text-align: center;
   z-index: 1;
@@ -188,7 +186,10 @@ a.note-img:after {
   display: inline-block;
 }
 .board .note.note-txt {
-  line-height: 244px;
+  width: 216px;
+  height: 220px;
+  padding: 24px 14px 0;
+  line-height: 220px;
   background-color: #fd8e09;
   color: #995401;
 }
@@ -218,9 +219,21 @@ a.note-img:after {
   vertical-align: middle;
 }
 .board .note.note-img {
-  line-height: 244px;
   background-color: #71459a;
   color: #3a244f;
+  max-width: 244px;
+  max-height: 268px;
+  line-height: 1px;
+}
+.board .note.note-img img.note-content {
+  max-width: 244px;
+  max-height: 268px;
+}
+.board .note.note-img.empty {
+  line-height: 220px;
+  width: 244px;
+  height: 220px;
+  padding-top: 24px;
 }
 .board .note.note-img.empty:before {
   content: "";
@@ -255,6 +268,14 @@ a.note-img:after {
 }
 .board .note:hover .remove-note {
   display: block;
+}
+.board .note textarea.note-content {
+  width: 190px;
+  height: 210px;
+  font-style: 14px;
+  line-height: 1;
+  display: inline-block;
+  resize: none;
 }
 .flash {
   background: #cee5F5;
