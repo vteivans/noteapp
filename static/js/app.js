@@ -46,7 +46,7 @@ var DesktopList = Backbone.View.extend({
 
 	newDesktop: function (e) {
 		if (e.target.value) {
-			var desktop = new Desktop({'name': e.target.value});
+			var desktop = new NoteBoard.Entities.Desktop({'name': e.target.value});
 			this.collection.add(desktop);
 			desktop.save();
 			
@@ -90,7 +90,7 @@ NoteBoard.on('start', function () {
 	}
 
 	NoteBoard.Board.Controller.displayNotes(desk);
-	NoteBoard.Controls.Controller.displayControls();
+	NoteBoard.Controls.Controller.displayControls(desk);
 
 
 	// NoteBoard.controls = new Controls();

@@ -66,12 +66,11 @@ def view_desktop(desktop=1):
 	return render_template('show_entries.html', sidebar=sidebar, notes=notes)
 
 
-""" Desktop list data backend """
-@app.route('/desktops', methods=['POST', 'GET', 'PUT'])
-@app.route('/desktops/<id>', methods=['POST', 'GET', 'PUT'])
-def desktop_list (id = None):
+""" if id not given creates new desktop """
+@app.route('/desktops', methods=['POST','PUT'])
+def create_desktop ():
 	desktopAttrs = {
-		'id': int(id) if id else None,
+		'id':  None,
 		'name': '',
 		'ord': None,
 		'current': None
@@ -79,69 +78,217 @@ def desktop_list (id = None):
 	errors = {}
 	requestData = request.json if request.json else request.form
 
-	if request.method in ['PUT', 'POST'] and requestData:
-		""" Simple parameter validation """
-		for attr in desktopAttrs:
-			if attr in requestData:
-				if attr == 'id':
-					continue
 
-				if attr == 'name' and not requestData[attr]:
-					errors['name'] = 'attribute "name" must be set'
+	""" Simple parameter validation """
+	for attr in desktopAttrs:
+		if attr in requestData:
+			if attr == 'id':
+				continue
 
-				desktopAttrs[attr] = requestData[attr]
-
-			elif attr == 'name':
+			if attr == 'name' and not requestData[attr]:
 				errors['name'] = 'attribute "name" must be set'
 
-		if errors:
-			return Response(json.dumps({'errors': errors}), mimetype='application/json', status=400)
+			desktopAttrs[attr] = requestData[attr]
 
-		db = get_db()
+		elif attr == 'name':
+			errors['name'] = 'attribute "name" must be set'
 
-		if desktopAttrs['id']:
-			""" Updating existing desktop """			
-			db.execute('update desktops SET name=?, ord=? where id = ?', [
-				desktopAttrs['name'],
-				desktopAttrs['ord'],
-				desktopAttrs['id']])
-			db.commit()
-			desktopAttrs['url'] = url_for('view_desktop', desktop=desktopAttrs['id'])
-			return jsonify(desktopAttrs)
+	if errors:
+		return Response(json.dumps({'errors': errors}), mimetype='application/json', status=400)
 
-		else:
-			""" Creating new desktop """
-			cursor = db.execute('insert into desktops(name,ord) values(?,?)', [
-				desktopAttrs['name'],
-				desktopAttrs['ord']])
-			db.commit()
-			desktopAttrs['id'] = cursor.lastrowid
-			desktopAttrs['url'] = url_for('view_desktop', desktop=desktopAttrs['id'])
-			return jsonify(desktopAttrs)
+	db = get_db()
 
-	else:
-		db = get_db()
-
-		if desktopAttrs['id']:
-			cursor = db.execute('SELECT id, name, ord FROM desktops where id = ? ORDER BY id ASC', [
-				desktopAttrs['id']])
-			desktops = cursor.fetchall()
-			return jsonify(desktops[0])
-		else:
-			cursor = db.execute('SELECT id, name, ord FROM desktops ORDER BY id ASC')
-			desktops = cursor.fetchall()
-			dlist = []
-
-			for desk in desktops:
-				dlist.append({'id': desk['id'], 'name': desk['name'], 'url': url_for('view_desktop', desktop=desk['id'])})
-
-			return Response(json.dumps(dlist), mimetype='application/json')
+	""" Creating new desktop """
+	cursor = db.execute('insert into desktops(name,ord) values(?,?)', [
+		desktopAttrs['name'],
+		desktopAttrs['ord']])
+	db.commit()
+	desktopAttrs['id'] = cursor.lastrowid
+	desktopAttrs['url'] = url_for('view_desktop', desktop=desktopAttrs['id'])
+	return jsonify(desktopAttrs)
 
 
-""" Note list data backend """
-@app.route('/notes/desktop/<desktop_id>', methods=['POST', 'GET', 'PUT', 'DELETE'])
-@app.route('/notes/desktop/<desktop_id>/<id>', methods=['POST', 'GET', 'PUT', 'DELETE'])
-def notes (desktop_id = None, id = None):
+""" If id given updates existing desktop """
+@app.route('/desktops/<id>', methods=['POST','PUT'])
+def update_desktop (id):
+	desktopAttrs = {
+		'id':  int(id),
+		'name': '',
+		'ord': None,
+		'current': None
+	}
+	errors = {}
+	requestData = request.json if request.json else request.form
+
+	""" Simple parameter validation """
+	for attr in desktopAttrs:
+		if attr in requestData:
+			if attr == 'id':
+				continue
+
+			if attr == 'name' and not requestData[attr]:
+				errors['name'] = 'attribute "name" must be set'
+
+			desktopAttrs[attr] = requestData[attr]
+
+		elif attr == 'name':
+			errors['name'] = 'attribute "name" must be set'
+
+	if errors:
+		return Response(json.dumps({'errors': errors}), mimetype='application/json', status=400)
+
+	db = get_db()
+
+	""" Updating existing desktop """			
+	db.execute('update desktops SET name=?, ord=? where id = ?', [
+		desktopAttrs['name'],
+		desktopAttrs['ord'],
+		desktopAttrs['id']])
+	db.commit()
+	desktopAttrs['url'] = url_for('view_desktop', desktop=desktopAttrs['id'])
+	return jsonify(desktopAttrs)
+	
+
+""" Return list of desktops """
+@app.route('/desktops', methods=['GET'])
+def desktop_content_display ():
+	db = get_db()
+
+	cursor = db.execute('SELECT id, name, ord FROM desktops ORDER BY id ASC')
+	desktops = cursor.fetchall()
+	dlist = []
+
+	for desk in desktops:
+		dlist.append({'id': desk['id'], 'name': desk['name'], 'url': url_for('view_desktop', desktop=desk['id'])})
+
+	return Response(json.dumps(dlist), mimetype='application/json')
+
+
+""" Returns single desktop """
+@app.route('/desktops/<id>', methods=['GET'])
+def desktop_list_display (id):
+	desktopAttrs = {
+		'id': int(id),
+	}
+	db = get_db()
+
+	cursor = db.execute('SELECT id, name, ord FROM desktops where id = ? ORDER BY id ASC', [
+			desktopAttrs['id']])
+
+	desktops = cursor.fetchall()
+	return jsonify(desktops[0])
+
+
+""" Returns all notes on a given desktop """
+@app.route('/notes/desktop/<desktop_id>', methods=['GET'])
+def get_notes(desktop_id):
+	noteAttrs = {
+		'id': None,
+		'type': ['img', 'txt'],
+		'desktop': int(desktop_id),
+		'content': '',
+		'posx': 0,
+		'posy': 0,
+		'width': None,
+		'height': None
+	}
+	db = get_db()
+
+	""" If id is not given, return all notes for this desktop """
+	curNotes = db.execute('SELECT id,type,desktop,content,posx,posy,width,height FROM notes WHERE desktop = ? ORDER BY id ASC', [
+		desktop_id])
+	notes = curNotes.fetchall()
+	nlist = []
+	
+	for note in notes:
+		noteDict = {}
+
+		for attr in noteAttrs:
+			noteDict[attr] = note[attr]
+		nlist.append(noteDict)
+
+	return Response(json.dumps(nlist), mimetype='application/json')
+
+
+""" Returns single note """
+@app.route('/notes/desktop/<desktop_id>/<id>', methods=['GET'])
+def get_note(desktop_id, id):
+	noteAttrs = {
+		'id': int(id),
+		'desktop': int(desktop_id)
+	}
+	db = get_db()
+
+	""" If id given return the note """
+	curNotes = db.execute('SELECT id,type,desktop,content,posx,posy,width,height FROM notes where id = ? ORDER BY id ASC', [
+		noteAttrs['id']])
+
+	note = curNotes.fetchone()
+	return jsonify(note)
+
+
+""" Creates new note if id is not given"""
+@app.route('/notes/desktop/<desktop_id>', methods=['POST','PUT'])
+def create_note (desktop_id):
+	noteAttrs = {
+			'id': None,
+			'type': ['img', 'txt'],
+			'desktop': int(desktop_id),
+			'content': '',
+			'posx': 0,
+			'posy': 0,
+			'width': None,
+			'height': None
+		}
+	errors = {}
+	requestData = request.json if request.json else request.form
+
+	""" Simple parameter validation """
+	for attr in noteAttrs:
+
+		if attr in requestData:
+			if attr == 'id':
+				continue
+
+			if attr == 'type' and requestData[attr] not in noteAttrs['type']:
+				errors[attr] = 'wrong note type specified, peas supply "txt" or "img"'
+				continue
+
+			if attr == 'desktop' and (1 > int(request.json['desktop']) or int(request.json[attr]) == noteAttrs[attr]):
+				# errors[attr] = 'paremter "desktop" must be positiv integer'
+				continue
+
+			if (attr in ['posx', 'posy']):
+				noteAttrs[attr] = max(noteAttrs[attr], requestData[attr])
+			else:
+				noteAttrs[attr] = requestData[attr]
+
+		elif attr == 'type':
+			errors[attr] = "parameter %s must be specified" % attr
+
+	if errors:
+		return Response(json.dumps({'errors': errors}), mimetype='application/json', status=400)
+		
+	db = get_db()
+
+	""" Creating new note """
+	cursor = db.execute('insert into notes(type,desktop,content,posx,posy,width,height) values(?,?,?,?,?,?,?)', [
+		noteAttrs['type'],
+		noteAttrs['desktop'],
+		noteAttrs['content'],
+		noteAttrs['posx'],
+		noteAttrs['posy'],
+		noteAttrs['width'],
+		noteAttrs['height']])
+	db.commit()
+	noteAttrs['id'] = cursor.lastrowid
+
+	return jsonify(noteAttrs)
+
+
+""" Updates existing note if id is given """
+@app.route('/notes/desktop/<desktop_id>/<id>', methods=['POST','PUT'])
+def update_note (desktop_id, id):
 	noteAttrs = {
 			'id': int(id) if id else None,
 			'type': ['img', 'txt'],
@@ -155,107 +302,81 @@ def notes (desktop_id = None, id = None):
 	errors = {}
 	requestData = request.json if request.json else request.form
 
-	if request.method in ['PUT', 'POST'] and requestData:
-		""" Simple parameter validation """
-		for attr in noteAttrs:
+	""" Simple parameter validation """
+	for attr in noteAttrs:
 
-			if attr in requestData:
-				if attr == 'id':
-					continue
+		if attr in requestData:
+			if attr == 'id':
+				continue
 
-				if attr == 'type' and requestData[attr] not in noteAttrs['type']:
-					errors[attr] = 'wrong note type specified, peas supply "txt" or "img"'
-					continue
+			if attr == 'type' and requestData[attr] not in noteAttrs['type']:
+				errors[attr] = 'wrong note type specified, peas supply "txt" or "img"'
+				continue
 
-				if attr == 'desktop' and (1 > int(request.json['desktop']) or int(request.json[attr]) == noteAttrs[attr]):
-					# errors[attr] = 'paremter "desktop" must be positiv integer'
-					continue
+			if attr == 'desktop' and (1 > int(request.json['desktop']) or int(request.json[attr]) == noteAttrs[attr]):
+				# errors[attr] = 'paremter "desktop" must be positiv integer'
+				continue
 
-				if (attr in ['posx', 'posy']):
-					noteAttrs[attr] = max(noteAttrs[attr], requestData[attr])
-				else:
-					noteAttrs[attr] = requestData[attr]
-
-			elif attr == 'type':
-				errors[attr] = "parameter %s must be specified" % attr
-
-		if errors:
-			return Response(json.dumps({'errors': errors}), mimetype='application/json', status=400)
-			
-		db = get_db()
-
-		if noteAttrs['id']:
-			""" Updating existing note """
-			db.execute('update notes SET type=?,desktop=?,content=?,posx=?,posy=?,width=?,height=? where id = ?', [
-				noteAttrs['type'],
-				noteAttrs['desktop'],
-				noteAttrs['content'],
-				noteAttrs['posx'],
-				noteAttrs['posy'],
-				noteAttrs['width'],
-				noteAttrs['height'],
-				noteAttrs['id']])
-			db.commit()
-			return jsonify(noteAttrs)
-		else:
-			""" Creating new note """
-			cursor = db.execute('insert into notes(type,desktop,content,posx,posy,width,height) values(?,?,?,?,?,?,?)', [
-				noteAttrs['type'],
-				noteAttrs['desktop'],
-				noteAttrs['content'],
-				noteAttrs['posx'],
-				noteAttrs['posy'],
-				noteAttrs['width'],
-				noteAttrs['height']])
-			db.commit()
-			noteAttrs['id'] = cursor.lastrowid
-			return jsonify(noteAttrs)
-	
-	elif request.method == 'DELETE':
-		errors = {}
-		if noteAttrs['id']:
-			db = get_db()
-			noteToRemove = db.execute('SELECT id,type,desktop,content,posx,posy,width,height FROM notes where id = ? and desktop = ? ORDER BY id ASC', [
-				noteAttrs['id'],noteAttrs['desktop']])
-			note = noteToRemove.fetchone()
-			if note:
-				db.execute('DELETE FROM notes WHERE id = ?', [note['id']])
-				db.commit()
-				return jsonify(note)
+			if (attr in ['posx', 'posy']):
+				noteAttrs[attr] = max(noteAttrs[attr], requestData[attr])
 			else:
-				errors['note'] = 'No note with id %d on desktop %d to delete' % (noteAttrs['id'], noteAttrs['desktop'])
-		else:
-			errors['id'] = 'Note id missing'
+				noteAttrs[attr] = requestData[attr]
 
+		elif attr == 'type':
+			errors[attr] = "parameter %s must be specified" % attr
+
+	if errors:
 		return Response(json.dumps({'errors': errors}), mimetype='application/json', status=400)
+		
+	db = get_db()
 
-	else:
+	""" Updating existing note """
+	db.execute('update notes SET type=?,desktop=?,content=?,posx=?,posy=?,width=?,height=? where id = ?', [
+		noteAttrs['type'],
+		noteAttrs['desktop'],
+		noteAttrs['content'],
+		noteAttrs['posx'],
+		noteAttrs['posy'],
+		noteAttrs['width'],
+		noteAttrs['height'],
+		noteAttrs['id']])
+	db.commit()
+	return jsonify(noteAttrs)
+
+
+""" Deleting note """
+@app.route('/notes/desktop/<desktop_id>', methods=['DELETE'])
+@app.route('/notes/desktop/<desktop_id>/<id>', methods=['DELETE'])
+def delete_notes (desktop_id, id = None):
+	noteAttrs = {
+			'id': int(id) if id else None,
+			'type': ['img', 'txt'],
+			'desktop': int(desktop_id),
+			'content': '',
+			'posx': 0,
+			'posy': 0,
+			'width': None,
+			'height': None
+		}
+
+	errors = {}
+	if noteAttrs['id']:
 		db = get_db()
-
-		if noteAttrs['id']:
-			""" If id given return the note """
-			curNotes = db.execute('SELECT id,type,desktop,content,posx,posy,width,height FROM notes where id = ? ORDER BY id ASC', [
-				noteAttrs['id']])
-			note = curNotes.fetchone()
+		noteToRemove = db.execute('SELECT id,type,desktop,content,posx,posy,width,height FROM notes where id = ? and desktop = ? ORDER BY id ASC', [
+			noteAttrs['id'],noteAttrs['desktop']])
+		note = noteToRemove.fetchone()
+		if note:
+			db.execute('DELETE FROM notes WHERE id = ?', [note['id']])
+			db.commit()
 			return jsonify(note)
 		else:
-			""" If id is not given, return all notes for this desktop """
-			curNotes = db.execute('SELECT id,type,desktop,content,posx,posy,width,height FROM notes WHERE desktop = ? ORDER BY id ASC', [
-				desktop_id])
-			notes = curNotes.fetchall()
-			nlist = []
-			
-			for note in notes:
-				noteDict = {}
+			errors['note'] = 'No note with id %d on desktop %d to delete' % (noteAttrs['id'], noteAttrs['desktop'])
+	else:
+		errors['id'] = 'Note id missing'
 
-				for attr in noteAttrs:
-					noteDict[attr] = note[attr]
-				nlist.append(noteDict)
+	return Response(json.dumps({'errors': errors}), mimetype='application/json', status=400)
+		
 
-			return Response(json.dumps(nlist), mimetype='application/json')
-@app.route('/delete/<what>/<id>')
-def delete (what, id):
-	pass
 
 if __name__ == '__main__':
 	app.run()
