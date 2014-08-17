@@ -1,6 +1,7 @@
 var NoteBoard = new Marionette.Application(); 
 NoteBoard.addRegions({
-	boardRegion: "#board-region"
+	boardRegion: "#board-region",
+	sidebarTop: "#sidebar div.top"
 });
 
 var DesktopList = Backbone.View.extend({
@@ -75,72 +76,6 @@ var DesktopList = Backbone.View.extend({
 });
 
 
-var Controls = Backbone.View.extend({
-
-	tagName: 'div',
-	id: 'controls',
-	className: 'controls',
-
-	events: {
-		"click .note-create.note-txt":"textNote",
-		"click .note-create.note-img":"imageNote",
-	},
-
-	initialize: function() {
-		this.template = _.template('<a class="note-create note-<%= type %>" data-type="<%= type %>" href="#"><%= text %></a>');
-		this.render();
-	},
-
-	render: function() {
-		var el = this.$el,
-			template = this.template;
-		el.empty();
-
-		var txt = $(template({type: 'txt', text: 'Txt'}));
-		var img = $(template({type: 'img', text: 'Img'}));
-
-		txt.draggable({
-			revert: true,
-			helper: 'clone',
-			appendTo: 'body',
-			zIndex: 100
-		});
-
-		img.draggable({
-			revert: true,
-			helper: 'clone',
-			appendTo: 'body',
-			zIndex: 100
-		});
-
-		el.append(txt);
-		el.append(img);
-		return this;
-	},
-
-	textNote: function () {
-		var note = new NoteBoard.Entities.Note({
-			content: '',
-			posx: 250,
-			posy: 20,
-			type: 'txt'
-		});
-		NoteBoard.notes.add(note);
-		note.save();
-	},
-
-	imageNote: function () {
-		var note = new NoteBoard.Entities.Note({
-			content: '',
-			posx: 280,
-			posy: 40,
-			type: 'img'
-		});
-		NoteBoard.notes.add(note);
-		note.save();
-	}
-});
-
 NoteBoard.on('start', function () {
 
 	var desktops = NoteBoard.request("desktop:entities", function(data) {
@@ -155,12 +90,13 @@ NoteBoard.on('start', function () {
 	}
 
 	NoteBoard.Board.Controller.displayNotes(desk);
+	NoteBoard.Controls.Controller.displayControls();
 
 
-	NoteBoard.controls = new Controls();
+	// NoteBoard.controls = new Controls();
 
 	var sidebar = $('#sidebar');
-	sidebar.children('.top').append(NoteBoard.controls.el);
+	// sidebar.children('.top').append(NoteBoard.controls.el);
 
 	var addDesktop = $('<a id="add-desktop" class="add-desktop" href="#">').html('+');
 	addDesktop.click(function (e) {

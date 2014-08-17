@@ -38,6 +38,8 @@ NoteBoard.module("Entities", function (Entities, NoteBoard, Backbone, Marionette
 
 			if (desk) {
 				desk = Number(desk);
+			} else {
+				return notes;
 			}
 
 			if (desk !== desktop || typeof notes != undefined) {

@@ -6,12 +6,8 @@ NoteBoard.module("Board", function (Board, NoteBoard, Backbone, Marionette, $, _
 					collection: notes
 				});
 
-				// notesView.on("childview:notes:show", function (childView, model) {
-				// 	NoteBoard.BoardApp.Show.Controller.showContact(model);
-				// });
 
-
-				// Catch delete event to remove item from model (liset_view.js)
+				// Catch delete event to remove item from model (board_view.js)
 				// Event can be captured here because it bubbles thoru to parents appending child names
 				notesView.on ("childview:note:remove", function (childView, model) {
 
@@ -25,20 +21,23 @@ NoteBoard.module("Board", function (Board, NoteBoard, Backbone, Marionette, $, _
 					}
 				});
 
-				notesView.on ("note:create", function (note) {
 
-					if (note && note['type']) {
-						note['content'] = '';
-
-						model = new NoteBoard.Entities.Note(note);
-						notes.add(model);
-						model.save();
-					}
-				});
-
+				notesView.on ("note:create", Board.Controller.createNote);
 
 				NoteBoard.boardRegion.show(notesView);
 			}, desktop);
+		},
+
+		createNote: function (note) {
+			notes = NoteBoard.request("note:entities");
+
+			if (note && note['type']) {
+				note['content'] = '';
+
+				model = new NoteBoard.Entities.Note(note);
+				notes.add(model);
+				model.save();
+			}
 		}
 	};
 });
