@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+	<head>
+		<title>My Note Board</title>
+		<link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}" />
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+		<script type="text/javascript" src="{{ url_for('static', filename='js/vendor/jquery-1.11.1.min.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/vendor/json2.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/vendor/jquery-ui.min.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/vendor/underscore.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/vendor/backbone.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/vendor/backbone.marionette.js') }}"></script>
+		
+		<script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+		<script type="text/javascript" src="{{ url_for('static', filename='js/entities/desktops.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/entities/notes.js') }}"></script>
+
+		<script type="text/javascript" src="{{ url_for('static', filename='js/apps/board/board_view.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/apps/board/board_controller.js') }}"></script>
+		
+		<script type="text/javascript" src="{{ url_for('static', filename='js/apps/controls/controls_view.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/apps/controls/controls_controller.js') }}"></script>
+	</head>
+	<body><div id="sidebar" class="sidebar">
+			{{ sidebar|safe }}
+		</div><div class="board" id="board-region">
+			<div  id="board" class="note-wrapper">
+				{% block body %}{% endblock %}	
+			</div>
+		</div>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			NoteBoard.start();
+		});
+		</script>
+	</body>
+</html>

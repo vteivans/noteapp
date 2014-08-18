@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block body %}
+	{% for note in notes %}
+		{% if note.type == 'txt' %}
+			<div class="note note-txt {{'empty' if not note.content }}" style="left:{{note.posx}}px;top:{{note.posy}}px;" data-id="{{ note.id }}">
+				<a href="javascript:;" class="remove-note">x</a>
+			{% if note.content %}
+				<span class="note-content">{{ note.content }}</span>
+			{% else %}
+				<span class="place-holder">enter your text</span>
+			{% endif %}
+			</div>
+		{% elif note.type == 'img' %}
+			<div class="note note-img {{'empty' if not note.content }}" style="left:{{note.posx}}px;top:{{note.posy}}px;" data-id="{{ note.id }}">
+				<a href="javascript:;" class="remove-note">x</a>
+			{% if note.content %}
+				<img class="note-content" src="{{ note.content|safe }}" width="{{ note.width if note.width }}" height="{{ note.height if note.height }}">
+			{% else %}
+				<span class="place-holder">image url here</span>
+			{% endif %}
+			</div>
+		{% endif %}
+	{% else %}
+		<em style="position: absolute; left: 50%; top: 0;">No notes here jet.</em>
+	{% endfor %}
+{% endblock %}

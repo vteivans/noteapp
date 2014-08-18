@@ -1,0 +1,41 @@
+@pageBg: #f4f4f4;
+@sidebarBg: #1d2027;
+
+@textNoteColor: #fd8e09;
+@imageNoteColor: #71459a;
+
+// @sidebarColor: #a2a6af;
+@sidebarColor: rgba(255, 255, 255, 0.4);
+
+.noteColor(@color) {
+	background-color: @color;
+	color: darken(@color, 21.21%);
+}
+
+.foldCorner(@color, @foldWidth) {
+
+	&:before {
+		content: "";
+		position: absolute;
+		right: 0;
+		bottom: -@foldWidth;
+		border-width: @foldWidth @foldWidth 0 0;
+		border-style: solid;
+		border-color: darken(@color, 21.21%) transparent;
+	}
+	&:after {
+		content: "";
+		position: absolute;
+		bottom: -@foldWidth;
+		left: 0;
+		right: @foldWidth;
+		border-width: @foldWidth/2;
+		border-style: solid;
+		border-color: @color;
+	}
+}
+
+.aButton(@display: block;) {
+	display: @display;
+	text-decoration: none;
+}
